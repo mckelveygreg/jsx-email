@@ -41,12 +41,7 @@ const buttonTextStyle = (pb?: number) => {
   };
 };
 
-export const Button: React.FC<Readonly<ButtonProps>> = ({
-  children,
-  style,
-  target = '_blank',
-  ...props
-}) => {
+export const Button: React.FC<Readonly<ButtonProps>> = ({ children, style, ...props }) => {
   const parsedPadding = parsePadding((style as any) || {});
   let textRaiseTop = '';
   let textRaiseBottom: number | undefined;
@@ -63,12 +58,7 @@ export const Button: React.FC<Readonly<ButtonProps>> = ({
   }
 
   return (
-    <a
-      {...props}
-      data-id="@jsx-email/button"
-      target={target}
-      style={buttonStyle({ ...style, ...parsedPadding })}
-    >
+    <a {...props} data-id="@jsx-email/button" style={buttonStyle({ ...style, ...parsedPadding })}>
       <span
         dangerouslySetInnerHTML={{
           __html: `<!--[if mso]><i style="${letterSpacingLeft}mso-font-width:-100%;${textRaiseTop}" hidden>&nbsp;</i><![endif]-->`
